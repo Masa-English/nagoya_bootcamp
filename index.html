@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masa's Boot Camp - 名古屋オフライン勉強会 | 2026.9.19</title>
+  <style>
+    :root {
+      --primary: #1a2a4a;
+      --accent: #e8913a;
+      --light: #f5f0eb;
+      --text: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Helvetica Neue", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      color: var(--text);
+      background: var(--light);
+      line-height: 1.8;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, #2c4a7c 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px 60px;
+    }
+
+    .hero-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .hero-logos img {
+      height: 80px;
+      border-radius: 50%;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .hero-logos img.logo-atop {
+      border-radius: 8px;
+      height: 50px;
+    }
+
+    .hero-label {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: bold;
+      padding: 4px 18px;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    .hero .date {
+      font-size: 1.3rem;
+      font-weight: 300;
+      opacity: 0.9;
+    }
+
+    /* Container */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Section */
+    section {
+      padding: 48px 0;
+    }
+
+    section + section {
+      border-top: 1px solid #ddd;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+      padding-left: 14px;
+      border-left: 4px solid var(--accent);
+    }
+
+    /* Info table */
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .info-table th,
+    .info-table td {
+      padding: 14px 16px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .info-table th {
+      width: 120px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .info-table td {
+      background: #fff;
+    }
+
+    .info-table tr + tr th,
+    .info-table tr + tr td {
+      border-top: 1px solid #eee;
+    }
+
+    .info-table a {
+      color: #2c6fbb;
+      text-decoration: none;
+    }
+
+    .info-table a:hover {
+      text-decoration: underline;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e74c3c;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: bold;
+      padding: 2px 10px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    /* Schedule */
+    .schedule {
+      list-style: none;
+    }
+
+    .schedule li {
+      display: flex;
+      gap: 20px;
+      padding: 14px 0;
+    }
+
+    .schedule li + li {
+      border-top: 1px dashed #ccc;
+    }
+
+    .schedule .time {
+      flex-shrink: 0;
+      width: 100px;
+      font-weight: bold;
+      color: var(--primary);
+      font-size: 0.95rem;
+    }
+
+    .schedule .desc {
+      flex: 1;
+    }
+
+    /* Note box */
+    .note-box {
+      background: #fff;
+      border: 2px solid var(--accent);
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-top: 8px;
+    }
+
+    .note-box p {
+      font-size: 0.95rem;
+    }
+
+    /* Map */
+    .map-wrapper {
+      margin-top: 16px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .map-wrapper iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+    }
+
+    .map-link {
+      display: inline-block;
+      margin-top: 12px;
+      color: #2c6fbb;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .map-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+
+      .hero .date {
+        font-size: 1.05rem;
+      }
+
+      .info-table th {
+        width: 90px;
+        padding: 10px 12px;
+        font-size: 0.8rem;
+      }
+
+      .info-table td {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+      }
+
+      .schedule li {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .schedule .time {
+        width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-logos">
+      <img src="images/masaenglish_logo.png" alt="Masa English">
+      <img src="images/atop_logo.jpg" alt="a-TOP" class="logo-atop">
+    </div>
+    <span class="hero-label">OFFLINE EVENT</span>
+    <h1>Masa's Boot Camp</h1>
+    <p class="date">2026.9.19 (Sat) 12:00 - 18:00 @ Nagoya</p>
+  </header>
+
+  <div class="container">
+
+    <!-- Overview -->
+    <section>
+      <h2 class="section-title">Event Information</h2>
+      <table class="info-table">
+        <tr>
+          <th>Date</th>
+          <td>2026年9月19日（土）</td>
+        </tr>
+        <tr>
+          <th>Time</th>
+          <td>12:00 - 18:00（開場 11:45）</td>
+        </tr>
+        <tr>
+          <th>Venue</th>
+          <td>
+            Kanie Building 4F<br>
+            〒453-0015<br>
+            愛知県名古屋市中村区椿町19-13
+          </td>
+        </tr>
+        <tr>
+          <th>Fee</th>
+          <td>5,000円<span class="badge">現金のみ</span></td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Schedule -->
+    <section>
+      <h2 class="section-title">Schedule</h2>
+      <ul class="schedule">
+        <li>
+          <span class="time">11:45</span>
+          <span class="desc">開場・受付</span>
+        </li>
+        <li>
+          <span class="time">12:00</span>
+          <span class="desc">スタート・自己紹介</span>
+        </li>
+        <li>
+          <span class="time">12:30 -</span>
+          <span class="desc">英語を使ったゲーム / Masaの講義 / アクティビティ<br><span style="font-size: 0.85rem; color: #888;">※ 途中、休憩を挟みます</span></span>
+        </li>
+        <li>
+          <span class="time">18:00</span>
+          <span class="desc">終了</span>
+        </li>
+      </ul>
+      <p style="margin-top: 16px; font-size: 0.88rem; color: #888;">
+        ※ プログラムの内容・時間配分は、当日の受講生の状況に合わせて変動する場合があります。<br>
+        ※ Masa以外にも専属担当のスタッフがサポートに入ります。<br>
+        ※ お菓子などをご用意しております。
+      </p>
+    </section>
+
+    <!-- Preparation -->
+    <section>
+      <h2 class="section-title">Before the Event</h2>
+      <div class="note-box">
+        <p>
+          特別な宿題はありませんが、<strong>これまで学習してきた教材をぜひ復習</strong>してきてください。
+          当日はアウトプットする機会がたくさんあるので、復習しておくとより充実した時間になります。
+        </p>
+      </div>
+    </section>
+
+    <!-- Access -->
+    <section>
+      <h2 class="section-title">Access</h2>
+      <p style="margin-bottom: 4px; font-weight: 600;">Kanie Building 4F</p>
+      <p style="font-size: 0.9rem; color: #666;">〒453-0015 愛知県名古屋市中村区椿町19-13</p>
+      <div class="map-wrapper">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.5!2d136.878!3d35.172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z5ZCN5Y-k5bGL5biC5Lit5p2R5Yy65qSh55S6MTktMTM!5e0!3m2!1sja!2sjp!4v1600000000000"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <a class="map-link" href="https://maps.app.goo.gl/aDJmnxqQ2gn4MG1G9" target="_blank" rel="noopener">
+        Google Maps で開く &rarr;
+      </a>
+    </section>
+
+    <!-- Notes -->
+    <section>
+      <h2 class="section-title">Notes</h2>
+      <ul style="padding-left: 1.2em; font-size: 0.95rem;">
+        <li style="margin-bottom: 8px;">参加費は<strong>現金のみ</strong>のお支払いとなります。おつりのないようご準備ください。</li>
+        <li style="margin-bottom: 8px;">開場は 11:45 です。余裕を持ってお越しください。</li>
+        <li style="margin-bottom: 8px;">筆記用具をご持参ください。</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <footer>
+    &copy; 2026 Masa's Boot Camp. All rights reserved.
+  </footer>
+
+</body>
+</html>
